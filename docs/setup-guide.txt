@@ -1,0 +1,160 @@
+PROJECT SETUP GUIDE (ESP32 + ARDUINO UNO + PYTHON)
+
+============================================================
+1. PYTHON APPLICATION
+(SECOND COMPUTER)
+============================================================
+
+1.1 Install Python
+
+Install Python 3.11 or newer.
+
+During installation, make sure to enable:
+
+Add Python to PATH
+
+Check the installation with:
+
+python --version
+
+------------------------------------------------------------
+
+1.2 Install Required Libraries
+
+Open Command Prompt or the VS Code terminal and run:
+
+pip install pyserial matplotlib
+
+If that does not work, use:
+
+python -m pip install pyserial matplotlib
+
+------------------------------------------------------------
+
+1.3 Run the Program
+
+Navigate to the folder containing main.py and run:
+
+python main.py
+
+or:
+
+py main.py
+
+------------------------------------------------------------
+
+1.4 Configure the COM Port
+
+In the Python code, change:
+
+COM_PORT = "COM24"
+
+to the correct COM port assigned to the Arduino Uno.
+
+You can find the correct port in:
+
+Device Manager -> Ports (COM & LPT)
+
+============================================================
+2. ARDUINO UNO
+(RECEIVER)
+============================================================
+
+2.1 Install Arduino IDE
+
+Download and install the Arduino IDE.
+
+------------------------------------------------------------
+
+2.2 Required Libraries
+
+Install the following libraries using Arduino Library Manager:
+
+- IRremote
+- LiquidCrystal_I2C
+
+------------------------------------------------------------
+
+2.3 Board Setup
+
+Select:
+
+- Board: Arduino Uno
+- Port: appropriate COM port
+
+------------------------------------------------------------
+
+2.4 Upload the Code
+
+Upload the Arduino receiver code by clicking the Upload button in the Arduino IDE.
+
+============================================================
+3. ESP32
+(TRANSMITTER)
+============================================================
+
+3.1 Install ESP32 Board Support
+
+In Arduino IDE, open:
+
+File -> Preferences
+
+Add the following URL to the Additional Boards Manager URLs:
+
+https://espressif.github.io/arduino-esp32/package_esp32_index.json
+
+Then open:
+
+Tools -> Board Manager
+
+Install:
+
+ESP32 by Espressif Systems
+
+------------------------------------------------------------
+
+3.2 Required Libraries
+
+Install:
+
+- IRremote
+- DallasTemperature
+- OneWire
+
+------------------------------------------------------------
+
+3.3 Board Setup
+
+Select:
+
+- Board: ESP32 Dev Module
+- Baud rate: 115200
+
+------------------------------------------------------------
+
+3.4 Upload the Code
+
+Upload the ESP32 transmitter code by clicking the Upload button in the Arduino IDE.
+
+============================================================
+4. STARTUP ORDER
+============================================================
+
+Start the system in the following order:
+
+1. Power on the ESP32.
+2. Power on the Arduino Uno.
+3. Start the Python application:
+
+python main.py
+
+============================================================
+5. COMMON PROBLEMS
+============================================================
+
+- Incorrect COM port selected.
+- Arduino Serial Monitor is still open.
+- IR receiver is not connected to pin 11.
+- Incorrect ESP32 GPIO configuration.
+
+============================================================
