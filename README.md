@@ -178,19 +178,23 @@ The application uses:
 
 ## Python GUI
 
-The Python application provides real-time monitoring and control of the complete system.
+The Python desktop application provides real-time monitoring and control of the complete system.
 
-If you add a screenshot to:
+It displays the current temperature, fan state, active operating mode and temperature threshold while plotting temperature changes over time.
 
-```text
-images/python-gui.png
-```
+The shaded areas on the graph indicate periods when the fan is active.
 
-use:
+### Arduino and Override Modes
 
-```markdown
-![Python GUI](images/python-gui.png)
-```
+The application supports automatic Arduino-based fan control as well as manual ON/OFF override modes.
+
+![Arduino and Override modes](images/gui-arduino-modes.png)
+
+### Python Automatic Mode
+
+In `AUTO Python` mode, the desktop application compares the measured temperature with a software-defined threshold and sends fan control commands to the Arduino.
+
+![Python automatic mode](images/gui-python-modes.png)
 
 ## Communication Flow
 
